@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     let bottomLeadingImage = UIImageView(image: .checkmark)
     let bottomTrailingImage = UIImageView(image: .checkmark)
     
-    struct CheckmarkConfig {
+    enum CheckmarkConfig {
         static let defaultCheckmarkWidth = CGFloat(150)
         static let defaultCheckmarkHeight = CGFloat(150)
     }
