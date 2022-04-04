@@ -10,20 +10,15 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    var logoImage = ThemeableImageView(image: UIImage(systemName: "applelogo"))
-    var titleLabel = ThemeableLabel(text: "Enter player name:")
-    var playerNameTextField = ThemeableTextField()
-    var nextButton = ThemeableButton(title: "Next")
+    var logoImage = CustomImageView(image: UIImage(systemName: "applelogo"))
+    var titleLabel = CustomLabel(text: "Enter player name:")
+    var playerNameTextField = CustomTextField()
+    var nextButton = CustomButton(title: "Next")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.action,
-            target: self,
-            action: #selector(onSettingsClicked)
-        )
-        
+        view.backgroundColor = .background
         title = "Second assignment"
         
         configureLogoImage()
@@ -32,17 +27,6 @@ class ViewController: UIViewController {
         configureNextButton()
         
         createDismissKeyboardTapGesture()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        view.backgroundColor = Theme.current.background
-        
-        logoImage.onThemeChanged()
-        titleLabel.onThemeChanged()
-        playerNameTextField.onThemeChanged()
-        nextButton.onThemeChanged()
     }
     
     // MARK: views
@@ -108,12 +92,6 @@ class ViewController: UIViewController {
             profileViewController.title = playerName
             
             self.navigationController?.pushViewController(profileViewController, animated: true)
-        }
-    }
-    
-    @objc func onSettingsClicked() {
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(SettingsViewController(), animated: true)
         }
     }
     

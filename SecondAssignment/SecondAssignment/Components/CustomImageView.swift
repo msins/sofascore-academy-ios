@@ -5,10 +5,9 @@
 //  Created by Marko Sinkovic on 28.03.2022..
 //
 
-import Foundation
 import UIKit
 
-class ThemeableImageView: UIImageView, Themeable {
+class CustomImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +20,6 @@ class ThemeableImageView: UIImageView, Themeable {
     override init(image: UIImage?) {
         super.init(image: image)
         
-        onThemeChanged()
-    }
-    
-    func onThemeChanged() {
-        tintColor = Theme.current.primaryText
+        tintColor = .primaryText
     }
 }

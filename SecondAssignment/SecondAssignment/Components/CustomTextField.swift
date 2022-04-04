@@ -5,10 +5,9 @@
 //  Created by Marko Sinkovic on 28.03.2022..
 //
 
-import Foundation
 import UIKit
 
-class ThemeableTextField: UITextField, Themeable {
+class CustomTextField: UITextField {
     
     let insets: UIEdgeInsets
     
@@ -22,7 +21,7 @@ class ThemeableTextField: UITextField, Themeable {
         
         layer.borderWidth = 1.0
         layer.cornerRadius = 8
-        onThemeChanged()
+        layer.borderColor = UIColor.primary.cgColor
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -31,9 +30,5 @@ class ThemeableTextField: UITextField, Themeable {
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: insets)
-    }
-    
-    func onThemeChanged() {
-        layer.borderColor = Theme.current.primary.cgColor
     }
 }

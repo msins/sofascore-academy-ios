@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58686E4E27F2557500FD2884 /* ThemeableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E4D27F2557500FD2884 /* ThemeableImageView.swift */; };
-		58686E5027F25A0000FD2884 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E4F27F25A0000FD2884 /* UIFont+Extension.swift */; };
-		58686E5227F25CDC00FD2884 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E5127F25CDC00FD2884 /* SettingsViewController.swift */; };
+		58686E4E27F2557500FD2884 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E4D27F2557500FD2884 /* CustomImageView.swift */; };
 		58686E5427F265BF00FD2884 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E5327F265BF00FD2884 /* UIColor+Extension.swift */; };
-		58686E5627F3105D00FD2884 /* ThemeableUISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E5527F3105D00FD2884 /* ThemeableUISwitch.swift */; };
-		58686E5827F31F6D00FD2884 /* Themeable .swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E5727F31F6C00FD2884 /* Themeable .swift */; };
+		58686E5627F3105D00FD2884 /* CustomUISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E5527F3105D00FD2884 /* CustomUISwitch.swift */; };
 		58686E5F27F3839800FD2884 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E5E27F3839800FD2884 /* ProfileViewController.swift */; };
 		58686E6127F3A9CA00FD2884 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58686E6027F3A9CA00FD2884 /* UIEdgeInsets+Extension.swift */; };
 		58802DAF27F1CFEA00760345 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DAE27F1CFEA00760345 /* AppDelegate.swift */; };
@@ -20,20 +17,16 @@
 		58802DB327F1CFEA00760345 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DB227F1CFEA00760345 /* ViewController.swift */; };
 		58802DB827F1CFEF00760345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58802DB727F1CFEF00760345 /* Assets.xcassets */; };
 		58802DBB27F1CFEF00760345 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58802DB927F1CFEF00760345 /* LaunchScreen.storyboard */; };
-		58802DC427F1D39100760345 /* ThemeableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DC327F1D39100760345 /* ThemeableTextField.swift */; };
-		58802DC627F1D39B00760345 /* ThemeableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DC527F1D39B00760345 /* ThemeableLabel.swift */; };
-		58802DC827F1D3A500760345 /* ThemeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DC727F1D3A500760345 /* ThemeableButton.swift */; };
+		58802DC427F1D39100760345 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DC327F1D39100760345 /* CustomTextField.swift */; };
+		58802DC627F1D39B00760345 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DC527F1D39B00760345 /* CustomLabel.swift */; };
+		58802DC827F1D3A500760345 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DC727F1D3A500760345 /* CustomButton.swift */; };
 		58802DD327F1DD3100760345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 58802DD227F1DD3100760345 /* SnapKit */; };
-		58802DD627F1E68900760345 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58802DD527F1E68900760345 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		58686E4D27F2557500FD2884 /* ThemeableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeableImageView.swift; sourceTree = "<group>"; };
-		58686E4F27F25A0000FD2884 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
-		58686E5127F25CDC00FD2884 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		58686E4D27F2557500FD2884 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		58686E5327F265BF00FD2884 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		58686E5527F3105D00FD2884 /* ThemeableUISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeableUISwitch.swift; sourceTree = "<group>"; };
-		58686E5727F31F6C00FD2884 /* Themeable .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Themeable .swift"; sourceTree = "<group>"; };
+		58686E5527F3105D00FD2884 /* CustomUISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISwitch.swift; sourceTree = "<group>"; };
 		58686E5E27F3839800FD2884 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		58686E6027F3A9CA00FD2884 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		58802DAB27F1CFEA00760345 /* SecondAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,10 +36,9 @@
 		58802DB727F1CFEF00760345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58802DBA27F1CFEF00760345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58802DBC27F1CFEF00760345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58802DC327F1D39100760345 /* ThemeableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeableTextField.swift; sourceTree = "<group>"; };
-		58802DC527F1D39B00760345 /* ThemeableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeableLabel.swift; sourceTree = "<group>"; };
-		58802DC727F1D3A500760345 /* ThemeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeableButton.swift; sourceTree = "<group>"; };
-		58802DD527F1E68900760345 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		58802DC327F1D39100760345 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		58802DC527F1D39B00760345 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		58802DC727F1D3A500760345 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +81,6 @@
 				58802DB727F1CFEF00760345 /* Assets.xcassets */,
 				58802DB927F1CFEF00760345 /* LaunchScreen.storyboard */,
 				58802DBC27F1CFEF00760345 /* Info.plist */,
-				58686E5127F25CDC00FD2884 /* SettingsViewController.swift */,
 				58686E5E27F3839800FD2884 /* ProfileViewController.swift */,
 			);
 			path = SecondAssignment;
@@ -98,11 +89,11 @@
 		58802DC227F1D37A00760345 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				58802DC327F1D39100760345 /* ThemeableTextField.swift */,
-				58802DC527F1D39B00760345 /* ThemeableLabel.swift */,
-				58802DC727F1D3A500760345 /* ThemeableButton.swift */,
-				58686E4D27F2557500FD2884 /* ThemeableImageView.swift */,
-				58686E5527F3105D00FD2884 /* ThemeableUISwitch.swift */,
+				58802DC327F1D39100760345 /* CustomTextField.swift */,
+				58802DC527F1D39B00760345 /* CustomLabel.swift */,
+				58802DC727F1D3A500760345 /* CustomButton.swift */,
+				58686E4D27F2557500FD2884 /* CustomImageView.swift */,
+				58686E5527F3105D00FD2884 /* CustomUISwitch.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -117,10 +108,7 @@
 		58802DD427F1E67B00760345 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				58802DD527F1E68900760345 /* Theme.swift */,
-				58686E4F27F25A0000FD2884 /* UIFont+Extension.swift */,
 				58686E5327F265BF00FD2884 /* UIColor+Extension.swift */,
-				58686E5727F31F6C00FD2884 /* Themeable .swift */,
 				58686E6027F3A9CA00FD2884 /* UIEdgeInsets+Extension.swift */,
 			);
 			path = Theme;
@@ -202,21 +190,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58686E5827F31F6D00FD2884 /* Themeable .swift in Sources */,
-				58802DC427F1D39100760345 /* ThemeableTextField.swift in Sources */,
-				58802DD627F1E68900760345 /* Theme.swift in Sources */,
-				58802DC627F1D39B00760345 /* ThemeableLabel.swift in Sources */,
-				58802DC827F1D3A500760345 /* ThemeableButton.swift in Sources */,
+				58802DC427F1D39100760345 /* CustomTextField.swift in Sources */,
+				58802DC627F1D39B00760345 /* CustomLabel.swift in Sources */,
+				58802DC827F1D3A500760345 /* CustomButton.swift in Sources */,
 				58802DB327F1CFEA00760345 /* ViewController.swift in Sources */,
 				58802DAF27F1CFEA00760345 /* AppDelegate.swift in Sources */,
 				58802DB127F1CFEA00760345 /* SceneDelegate.swift in Sources */,
-				58686E5627F3105D00FD2884 /* ThemeableUISwitch.swift in Sources */,
-				58686E4E27F2557500FD2884 /* ThemeableImageView.swift in Sources */,
+				58686E5627F3105D00FD2884 /* CustomUISwitch.swift in Sources */,
+				58686E4E27F2557500FD2884 /* CustomImageView.swift in Sources */,
 				58686E5427F265BF00FD2884 /* UIColor+Extension.swift in Sources */,
 				58686E6127F3A9CA00FD2884 /* UIEdgeInsets+Extension.swift in Sources */,
 				58686E5F27F3839800FD2884 /* ProfileViewController.swift in Sources */,
-				58686E5027F25A0000FD2884 /* UIFont+Extension.swift in Sources */,
-				58686E5227F25CDC00FD2884 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

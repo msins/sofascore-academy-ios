@@ -5,10 +5,9 @@
 //  Created by Marko Sinkovic on 28.03.2022..
 //
 
-import Foundation
 import UIKit
 
-class ThemeableLabel: UILabel, Themeable {
+class CustomLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,14 +17,11 @@ class ThemeableLabel: UILabel, Themeable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(text: String, font: UIFont = .title) {
+    init(text: String) {
         super.init(frame: .zero)
         
         self.text = text
         self.font = font
-    }
-    
-    func onThemeChanged() {
-        self.textColor = Theme.current.primaryText
+        self.textColor = .primaryText
     }
 }

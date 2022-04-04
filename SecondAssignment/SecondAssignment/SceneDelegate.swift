@@ -21,8 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        applyTheme()
-        
         let navigationController = UINavigationController()
         navigationController.viewControllers = [ViewController()]
         window?.rootViewController = navigationController
@@ -55,14 +53,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-    }
-    
-    fileprivate func applyTheme() {
-        if UserDefaults.standard.object(forKey: Theme.IsLightThemeKey) != nil {
-            Theme.current = UserDefaults.standard.bool(forKey: Theme.IsLightThemeKey) ? Theme.light : Theme.dark
-        }
-        
-        window?.overrideUserInterfaceStyle = (Theme.current == Theme.light) ? .light : .dark
     }
 }
 

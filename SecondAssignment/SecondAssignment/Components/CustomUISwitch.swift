@@ -5,10 +5,9 @@
 //  Created by Marko Sinkovic on 29.03.2022..
 //
 
-import Foundation
 import UIKit
 
-class ThemeableUISwitch: UISwitch, Themeable {
+class CustomUISwitch: UISwitch {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,11 +20,7 @@ class ThemeableUISwitch: UISwitch, Themeable {
     init() {
         super.init(frame: .zero)
         
-        onThemeChanged()
-    }
-    
-    func onThemeChanged() {
-        self.onTintColor = Theme.current.primary
-        self.thumbTintColor = Theme.current.background
+        self.onTintColor = .primary
+        self.thumbTintColor = .background
     }
 }
