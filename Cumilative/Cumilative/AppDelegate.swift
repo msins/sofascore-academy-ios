@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  HelloWorld
+//  Cumilative
 //
-//  Created by Marko Sinkovic on 15.03.2022..
+//  Created by Marko Sinkovic on 04.04.2022..
 //
 
 import UIKit

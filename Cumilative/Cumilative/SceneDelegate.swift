@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  FirstAssignment
+//  Cumilative
 //
-//  Created by Marko Sinkovic on 22.03.2022..
+//  Created by Marko Sinkovic on 04.04.2022..
 //
 
 import UIKit
@@ -20,10 +20,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = createTabBar()
         window?.makeKeyAndVisible()
     }
 
+    func createTabBar() -> UITabBarController {
+        let tabBar = UITabBarController()
+        UITabBar.appearance().tintColor = .primary
+        tabBar.viewControllers = [
+            createCheckmarksNavigationController(),
+            createPlayerNameNavigationController()
+        ]
+
+        return tabBar
+    }
+    
+    func createCheckmarksNavigationController() -> UINavigationController {
+        let checkmarksViewController = CheckmarksViewController()
+        checkmarksViewController.title = "Checkmarks"
+        checkmarksViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+
+        return UINavigationController(rootViewController: checkmarksViewController)
+    }
+    
+    func createPlayerNameNavigationController() -> UINavigationController {
+        let playerNameViewController = PlayerNameViewController()
+        playerNameViewController.title = "Player"
+        playerNameViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        
+        return UINavigationController(rootViewController: playerNameViewController)
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
