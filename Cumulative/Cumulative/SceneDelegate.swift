@@ -29,7 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().tintColor = .primary
         tabBar.viewControllers = [
             createCheckmarksNavigationController(),
-            createPlayerNameNavigationController()
+            createPlayerNameNavigationController(),
+            createMessagesViewNavigationController()
         ]
 
         return tabBar
@@ -49,6 +50,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         playerNameViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         
         return UINavigationController(rootViewController: playerNameViewController)
+    }
+    
+    func createMessagesViewNavigationController() -> UINavigationController {
+        let messagesViewController = MessagesViewController()
+        messagesViewController.title = "Messages"
+        messagesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 2)
+        
+        return UINavigationController(rootViewController: messagesViewController)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
