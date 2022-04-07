@@ -22,10 +22,12 @@
 		586E9D2E27FBA1DF00C74A7C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E9D2D27FBA1DF00C74A7C /* CustomButton.swift */; };
 		586E9D3127FBA22A00C74A7C /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E9D3027FBA22A00C74A7C /* UIEdgeInsets+Extension.swift */; };
 		586E9D3327FBA24500C74A7C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E9D3227FBA24500C74A7C /* UIColor+Extension.swift */; };
+		586E9D3727FCD7EB00C74A7C /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E9D3627FCD7EB00C74A7C /* MessagesViewController.swift */; };
+		586E9D3927FCE04B00C74A7C /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E9D3827FCE04B00C74A7C /* MessageTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		586E9D0427FB883400C74A7C /* Cumilative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cumilative.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		586E9D0427FB883400C74A7C /* Cumulative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cumulative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		586E9D0727FB883400C74A7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		586E9D0927FB883400C74A7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		586E9D1027FB883700C74A7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +43,8 @@
 		586E9D2D27FBA1DF00C74A7C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		586E9D3027FBA22A00C74A7C /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		586E9D3227FBA24500C74A7C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		586E9D3627FCD7EB00C74A7C /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		586E9D3827FCE04B00C74A7C /* MessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,7 @@
 		586E9CFB27FB883400C74A7C = {
 			isa = PBXGroup;
 			children = (
-				586E9D0627FB883400C74A7C /* Cumilative */,
+				586E9D0627FB883400C74A7C /* Cumulative */,
 				586E9D0527FB883400C74A7C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,12 +70,12 @@
 		586E9D0527FB883400C74A7C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				586E9D0427FB883400C74A7C /* Cumilative.app */,
+				586E9D0427FB883400C74A7C /* Cumulative.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		586E9D0627FB883400C74A7C /* Cumilative */ = {
+		586E9D0627FB883400C74A7C /* Cumulative */ = {
 			isa = PBXGroup;
 			children = (
 				586E9D2F27FBA1F800C74A7C /* Theme */,
@@ -84,8 +88,9 @@
 				586E9D1B27FB949200C74A7C /* CheckmarksViewController.swift */,
 				586E9D1D27FB9C9A00C74A7C /* PlayerNameViewController.swift */,
 				586E9D1F27FB9D7700C74A7C /* ProfileViewController.swift */,
+				586E9D3627FCD7EB00C74A7C /* MessagesViewController.swift */,
 			);
-			path = Cumilative;
+			path = Cumulative;
 			sourceTree = "<group>";
 		};
 		586E9D2427FB9F4900C74A7C /* Components */ = {
@@ -96,6 +101,7 @@
 				586E9D2927FB9F7300C74A7C /* CustomTextField.swift */,
 				586E9D2B27FBA1B000C74A7C /* CustomUISwitch.swift */,
 				586E9D2D27FBA1DF00C74A7C /* CustomButton.swift */,
+				586E9D3827FCE04B00C74A7C /* MessageTableCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -112,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		586E9D0327FB883400C74A7C /* Cumilative */ = {
+		586E9D0327FB883400C74A7C /* Cumulative */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 586E9D1827FB883700C74A7C /* Build configuration list for PBXNativeTarget "Cumilative" */;
+			buildConfigurationList = 586E9D1827FB883700C74A7C /* Build configuration list for PBXNativeTarget "Cumulative" */;
 			buildPhases = (
 				586E9D0027FB883400C74A7C /* Sources */,
 				586E9D0127FB883400C74A7C /* Frameworks */,
@@ -124,12 +130,12 @@
 			);
 			dependencies = (
 			);
-			name = Cumilative;
+			name = Cumulative;
 			packageProductDependencies = (
 				586E9D2227FB9E2F00C74A7C /* SnapKit */,
 			);
 			productName = Cumilative;
-			productReference = 586E9D0427FB883400C74A7C /* Cumilative.app */;
+			productReference = 586E9D0427FB883400C74A7C /* Cumulative.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -147,7 +153,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 586E9CFF27FB883400C74A7C /* Build configuration list for PBXProject "Cumilative" */;
+			buildConfigurationList = 586E9CFF27FB883400C74A7C /* Build configuration list for PBXProject "Cumulative" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -163,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				586E9D0327FB883400C74A7C /* Cumilative */,
+				586E9D0327FB883400C74A7C /* Cumulative */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +193,7 @@
 			files = (
 				586E9D2027FB9D7700C74A7C /* ProfileViewController.swift in Sources */,
 				586E9D1C27FB949200C74A7C /* CheckmarksViewController.swift in Sources */,
+				586E9D3727FCD7EB00C74A7C /* MessagesViewController.swift in Sources */,
 				586E9D2C27FBA1B000C74A7C /* CustomUISwitch.swift in Sources */,
 				586E9D3127FBA22A00C74A7C /* UIEdgeInsets+Extension.swift in Sources */,
 				586E9D2627FB9F5900C74A7C /* CustomImageView.swift in Sources */,
@@ -197,6 +204,7 @@
 				586E9D3327FBA24500C74A7C /* UIColor+Extension.swift in Sources */,
 				586E9D2827FB9F6800C74A7C /* CustomLabel.swift in Sources */,
 				586E9D2A27FB9F7300C74A7C /* CustomTextField.swift in Sources */,
+				586E9D3927FCE04B00C74A7C /* MessageTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -320,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -339,7 +347,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XC4JS7J2W3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cumilative/Info.plist;
+				INFOPLIST_FILE = Cumulative/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cumulative;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -350,7 +359,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.sofascore.Cumilative;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.sofascore.Cumulative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -367,7 +376,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XC4JS7J2W3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cumilative/Info.plist;
+				INFOPLIST_FILE = Cumulative/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cumulative;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -378,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.sofascore.Cumilative;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.sofascore.Cumulative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -389,7 +399,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		586E9CFF27FB883400C74A7C /* Build configuration list for PBXProject "Cumilative" */ = {
+		586E9CFF27FB883400C74A7C /* Build configuration list for PBXProject "Cumulative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				586E9D1627FB883700C74A7C /* Debug */,
@@ -398,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		586E9D1827FB883700C74A7C /* Build configuration list for PBXNativeTarget "Cumilative" */ = {
+		586E9D1827FB883700C74A7C /* Build configuration list for PBXNativeTarget "Cumulative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				586E9D1927FB883700C74A7C /* Debug */,
