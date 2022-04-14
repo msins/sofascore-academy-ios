@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().tintColor = .primary
         tabBar.viewControllers = [
             createCheckmarksNavigationController(),
-            createPlayerNameNavigationController(),
+            createGithubFollowerFetchNavigationController(),
             createMessagesViewNavigationController()
         ]
 
@@ -44,12 +44,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return UINavigationController(rootViewController: checkmarksViewController)
     }
     
-    func createPlayerNameNavigationController() -> UINavigationController {
-        let playerNameViewController = PlayerNameViewController()
-        playerNameViewController.title = "Player"
-        playerNameViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+    func createGithubFollowerFetchNavigationController() -> UINavigationController {
+        let githubFollowersFetchViewController = GithubFollowerFetchViewController()
+        githubFollowersFetchViewController.title = "Fetch github followers"
+        githubFollowersFetchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         
-        return UINavigationController(rootViewController: playerNameViewController)
+        return UINavigationController(rootViewController: githubFollowersFetchViewController)
     }
     
     func createMessagesViewNavigationController() -> UINavigationController {
