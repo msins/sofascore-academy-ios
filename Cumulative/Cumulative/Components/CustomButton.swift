@@ -17,7 +17,7 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(title: String, insets: UIEdgeInsets = .default) {
+    init(title: String, color: UIColor = .primary, insets: UIEdgeInsets = .default) {
         super.init(frame: .zero)
         
         setTitle(title, for: .normal)
@@ -25,7 +25,7 @@ class CustomButton: UIButton {
         layer.masksToBounds = true
         contentEdgeInsets = insets
         
-        backgroundColor = .primary
+        backgroundColor = color
         setTitleColor(.background, for: .normal)
     }
 }

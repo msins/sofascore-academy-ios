@@ -17,11 +17,13 @@ class CustomLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(text: String) {
+    init() {
         super.init(frame: .zero)
-        
-        self.text = text
-        self.font = font
         self.textColor = .primaryText
+    }
+    
+    convenience init(text: String) {
+        self.init()
+        self.text = text
     }
 }
