@@ -38,8 +38,8 @@ class GithubProfileViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(follower: GithubFollowerResponse) {
-        login = follower.login
+    init(login: String) {
+        self.login = login
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -78,6 +78,12 @@ class GithubProfileViewController: UIViewController {
     
     // MARK: views
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     private func configureLoadingSpinner() {
         view.addSubview(loadingSpinner)
         
@@ -87,10 +93,18 @@ class GithubProfileViewController: UIViewController {
     }
     
     private func configureDoneButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,
             action: #selector(onDoneClicked)
+        )
+    }
+    
+    private func configureFavoriteButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(onFavoriteClicked)
         )
     }
     
@@ -188,7 +202,7 @@ class GithubProfileViewController: UIViewController {
     
     private func showError(_ error: Error) {
         print(error.localizedDescription)
-        let alert = UIAlertController(title: "Error", message: "Couldn't load followers.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { _ in }))
 
         present(alert, animated: true)
@@ -218,7 +232,7 @@ class GithubProfileViewController: UIViewController {
                         
                         DispatchQueue.main.async {
                             let followersController = GithubFollowersViewController(followers: followers)
-                            
+                            followersController.title = self.login
                             self.navigationController?.pushViewController(followersController, animated: true)
                         }
                     }
@@ -267,6 +281,7 @@ class GithubProfileViewController: UIViewController {
             configureBio()
         }
         
+        configureFavoriteButton()
         configureDetailsSection()
         configureFollowersSection()
         configureUserSince()
@@ -276,5 +291,36 @@ class GithubProfileViewController: UIViewController {
         DispatchQueue.main.async {
             self.navigationController?.dismiss(animated: true)
         }
+    }
+    
+    
+    @objc private func onFavoriteClicked() {
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        PersistenceManager.favorite(.add, follower: Follower(login: profile!.login, avatarUrl: profile!.avatarUrl))
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    guard let self = self else { return }
+                    
+                    self.navigationItem.rightBarButtonItem?.isEnabled = true
+                    
+                    if case .failure(let error) = completion {
+                        self.showError(error)
+                    }
+                },
+                receiveValue: { [weak self] favorite in
+                    guard let self = self else { return }
+                    
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Success", message: "\(favorite.login) added to favorites.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in }))
+
+                        self.present(alert, animated: true)
+                    }
+                }
+            ).store(in: &cancellables)
+        
+        
     }
 }

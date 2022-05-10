@@ -31,7 +31,7 @@ class GithubFollowersViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Followers"
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         collectionView.delegate = self
         collectionView.backgroundColor = .background
@@ -65,8 +65,10 @@ class GithubFollowersViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let githubProfileVC = GithubProfileViewController(follower: followers[indexPath.row])
-        present(UINavigationController(rootViewController: githubProfileVC), animated: true)
+        let githubProfileVC = GithubProfileViewController(login: followers[indexPath.row].login)
+        DispatchQueue.main.async {
+            self.present(UINavigationController(rootViewController: githubProfileVC), animated: true)
+        }
     }
 }
 

@@ -94,6 +94,7 @@ class GithubFollowerFetchViewController: UIViewController {
     private func openFollowers(_ followers: [GithubFollowerResponse]) {
         DispatchQueue.main.async {
             let githubFollowersVC = GithubFollowersViewController(followers: followers)
+            githubFollowersVC.title = self.githubSearch.text!
             self.navigationController?.pushViewController(githubFollowersVC, animated: true)
         }
     }

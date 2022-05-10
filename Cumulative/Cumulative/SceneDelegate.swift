@@ -30,7 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBar.viewControllers = [
             createCheckmarksNavigationController(),
             createGithubFollowerFetchNavigationController(),
-            createMessagesViewNavigationController()
+            createMessagesViewNavigationController(),
+            createFavoritesViewNavigationController()
         ]
 
         return tabBar
@@ -58,6 +59,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         messagesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 2)
         
         return UINavigationController(rootViewController: messagesViewController)
+    }
+    
+    func createFavoritesViewNavigationController() -> UINavigationController {
+        let favoritesViewController = GithubFavouritesViewController()
+        favoritesViewController.title = "Favorites"
+        favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+        
+        return UINavigationController(rootViewController: favoritesViewController)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
