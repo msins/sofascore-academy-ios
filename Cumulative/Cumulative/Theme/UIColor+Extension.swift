@@ -13,4 +13,10 @@ extension UIColor {
     static let primaryText = UIColor(named: "primaryText")!
     
     static let primary = UIColor(named: "primary")!
+
+    static let githubProfileButton = UIColor(named: "github_profile_button")!
+
+    static let githubFollowersButton = UIColor(named: "github_followers_button")!
+    
+    static let githubSectionBackground = UIColor(named: "github_section_background")!
 }

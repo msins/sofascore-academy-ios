@@ -8,75 +8,84 @@
 import UIKit
 import SnapKit
 import Combine
-
-typealias Information = (key: String, value: String)
+import SafariServices
 
 class GithubProfileViewController: UIViewController {
-
+    
     private let avatar = UIImageView()
-
-    private let informationTableView = UITableView()
-    private var information = [Information]()
-
+    private let usernameLabel = CustomLabel()
+    private let fullnameLabel = CustomLabel()
+    
+    private let bio = CustomLabel()
+    
+    private let locationIcon = CustomImageView(image: UIImage(systemName: "location"))
+    private let locationLabel = CustomLabel()
+    
+    private var followersSection = ProfileFollowersSection(followers: 0, following: 0)
+    private var detailsSection = ProfileDetailsSection(repos: 0, gists: 0)
+    
+    private var userSinceLabel = CustomLabel()
+    private let userSinceDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM yyyy"
+        return formatter
+    }()
+    
     private let loadingSpinner = UIActivityIndicatorView()
-
+    
     private let login: String
-
-    private enum CellType {
-        static let information = "information"
-    }
-
+    private var profile: GithubProfileResponse?
+    
     private var cancellables = Set<AnyCancellable>()
-
+    
     init(follower: GithubFollowerResponse) {
         login = follower.login
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
-
+        
         configureDoneButton()
         configureAvatar()
-        configureInformationTableView()
-
+        
         configureLoadingSpinner()
         loadingSpinner.startAnimating()
-
+        
         NetworkManager.shared.fetchGithubProfile(of: login)
-                      .receive(on: DispatchQueue.main)
-                      .sink(
-                          receiveCompletion: { [weak self] completion in
-                              guard let self = self else { return }
-
-                              self.loadingSpinner.stopAnimating()
-
-                              if case .failure(_) = completion {
-                                  self.onDoneClicked()
-                              }
-                          },
-                          receiveValue: { [weak self] profile in
-                              self?.onProfileLoaded(profile)
-                          }
-                      )
-                      .store(in: &cancellables)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    guard let self = self else { return }
+                    
+                    self.loadingSpinner.stopAnimating()
+                    
+                    if case .failure(_) = completion {
+                        self.onDoneClicked()
+                    }
+                },
+                receiveValue: { [weak self] profile in
+                    self?.onProfileLoaded(profile)
+                }
+            )
+            .store(in: &cancellables)
     }
-
+    
     // MARK: views
-
+    
     private func configureLoadingSpinner() {
         view.addSubview(loadingSpinner)
-
+        
         loadingSpinner.snp.makeConstraints {
             $0.centerX.centerY.equalTo(view.layoutMarginsGuide)
         }
     }
-
+    
     private func configureDoneButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
@@ -84,72 +93,192 @@ class GithubProfileViewController: UIViewController {
             action: #selector(onDoneClicked)
         )
     }
-
+    
     private func configureAvatar() {
         view.addSubview(avatar)
-
+        
         avatar.sd_imageTransition = .fade
         avatar.layer.cornerRadius = 8
         avatar.layer.masksToBounds = true
-
+        
         avatar.snp.makeConstraints {
-            $0.width.height.equalTo(200)
-            $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(100)
+            $0.leading.equalTo(view.layoutMarginsGuide)
             $0.top.equalTo(view.layoutMarginsGuide)
         }
     }
-
-    private func configureInformationTableView() {
-        view.addSubview(informationTableView)
-
-        informationTableView.isScrollEnabled = false
-        informationTableView.backgroundColor = .background
-        informationTableView.separatorStyle = .singleLine
-        informationTableView.dataSource = self
-        informationTableView.register(ProfileInformationTableCell.self, forCellReuseIdentifier: CellType.information)
-
-        informationTableView.snp.makeConstraints {
-            $0.top.equalTo(avatar.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.layoutMarginsGuide)
+    
+    private func configureUsername() {
+        view.addSubview(usernameLabel)
+        
+        usernameLabel.text = login
+        usernameLabel.font = .boldSystemFont(ofSize: 28)
+        
+        usernameLabel.snp.makeConstraints {
+            $0.top.equalTo(avatar.snp.top)
+            $0.leading.equalTo(avatar.snp.trailing).offset(10)
         }
     }
-
-    // MARK: hooks
-
-    private func onProfileLoaded(_ profile: GithubProfileResponse) {
-        navigationItem.title = profile.login.appending(profile.name != nil ? " (\(profile.name!))" : "")
-        avatar.sd_setImage(with: URL(string: profile.avatarUrl))
-
-        information.append(Information(key: "Followers", value: profile.followers.description))
-        information.append(Information(key: "Following", value: profile.following.description))
-        information.append(Information(key: "Public gists", value: profile.publicGists.description))
-        information.append(Information(key: "Public repos", value: profile.publicRepos.description))
-        information.append(Information(key: "Company", value: profile.company ?? "-"))
-
-        informationTableView.reloadData()
+    
+    private func configureName() {
+        view.addSubview(fullnameLabel)
+        
+        fullnameLabel.text = profile?.name
+        fullnameLabel.font = .systemFont(ofSize: 16)
+        
+        fullnameLabel.snp.makeConstraints {
+            $0.top.equalTo(usernameLabel.snp.bottom)
+            $0.leading.equalTo(avatar.snp.trailing).offset(10)
+        }
     }
+    
+    private func configureBio() {
+        view.addSubview(bio)
+        
+        bio.text = profile?.bio
+        bio.numberOfLines = 0
+        bio.font = .systemFont(ofSize: 14)
+        
+        bio.snp.makeConstraints {
+            $0.top.equalTo(avatar.snp.bottom).offset(15)
+            $0.leading.equalTo(view.layoutMarginsGuide)
+            $0.trailing.equalTo(view.layoutMarginsGuide)
+        }
+    }
+    
+    private func configureLocation() {
+        view.addSubview(locationIcon)
+        view.addSubview(locationLabel)
+        
+        locationIcon.snp.makeConstraints {
+            $0.leading.equalTo(avatar.snp.trailing).offset(10)
+            $0.bottom.equalTo(avatar.snp.bottom)
+        }
+        
+        locationLabel.text = profile?.location
+        
+        locationLabel.snp.makeConstraints {
+            $0.leading.equalTo(locationIcon.snp.trailing)
+            $0.centerY.equalTo(locationIcon)
+        }
+    }
+    
+    private func configureDetailsSection() {
+        detailsSection = ProfileDetailsSection(repos: profile!.publicRepos, gists: profile!.publicGists)
+        self.view.addSubview(detailsSection)
+        
+        detailsSection.handleDetailsClicked = {
+            let detailsController = SFSafariViewController(url: URL(string: self.profile!.htmlUrl)!)
+            DispatchQueue.main.async {
+                self.navigationController?.present(detailsController, animated: true)
+            }
+        }
+        
+        detailsSection.snp.makeConstraints {
+            if profile?.bio != nil {
+                $0.top.equalTo(bio.snp.bottom).offset(15)
+            } else {
+                $0.top.equalTo(avatar.snp.bottom).offset(15)
+            }
+            $0.trailing.equalTo(view.layoutMarginsGuide)
+            $0.leading.equalTo(view.layoutMarginsGuide)
+            $0.height.equalTo(175)
+        }
+    }
+    
+    private func showError(_ error: Error) {
+        print(error.localizedDescription)
+        let alert = UIAlertController(title: "Error", message: "Couldn't load followers.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { _ in }))
 
+        present(alert, animated: true)
+    }
+    
+    private func configureFollowersSection() {
+        followersSection = ProfileFollowersSection(followers: profile!.followers, following: profile!.following)
+        self.view.addSubview(followersSection)
+        
+        followersSection.handleFollowersClicked = {
+            self.followersSection.startLoading()
+            
+            NetworkManager.shared.fetchGithubFollowers(of: self.profile!.login)
+                .receive(on: DispatchQueue.main)
+                .sink(
+                    receiveCompletion: { [weak self] completion in
+                        guard let self = self else { return }
+                        
+                        self.followersSection.stopLoading()
+                        
+                        if case .failure(let error) = completion {
+                            self.showError(error)
+                        }
+                    },
+                    receiveValue: { [weak self] followers in
+                        guard let self = self else { return }
+                        
+                        DispatchQueue.main.async {
+                            let followersController = GithubFollowersViewController(followers: followers)
+                            
+                            self.navigationController?.pushViewController(followersController, animated: true)
+                        }
+                    }
+                )
+                .store(in: &self.cancellables)
+        }
+        
+        
+        followersSection.snp.makeConstraints {
+            $0.top.equalTo(detailsSection.snp.bottom).offset(15)
+            $0.trailing.equalTo(view.layoutMarginsGuide)
+            $0.leading.equalTo(view.layoutMarginsGuide)
+            $0.height.equalTo(175)
+        }
+    }
+    
+    private func configureUserSince() {
+        guard let profile = profile else {
+            return
+        }
+
+        view.addSubview(userSinceLabel)
+        
+        userSinceLabel.text = "User since \(userSinceDateFormatter.string(from: profile.createdAt))"
+        
+        userSinceLabel.snp.makeConstraints {
+            $0.top.equalTo(followersSection.snp.bottom).offset(10)
+            $0.centerX.equalToSuperview()
+        }
+    }
+    
+    // MARK: hooks
+    
+    private func onProfileLoaded(_ profile: GithubProfileResponse) {
+        self.profile = profile
+        
+        avatar.sd_setImage(with: URL(string: profile.avatarUrl))
+        
+        if profile.location != nil {
+            configureLocation()
+        }
+        
+        configureUsername()
+        
+        if profile.name != nil {
+            configureName()
+        }
+        
+        if profile.bio != nil {
+            configureBio()
+        }
+        
+        configureDetailsSection()
+        configureFollowersSection()
+        configureUserSince()
+    }
+    
     @objc private func onDoneClicked() {
         DispatchQueue.main.async {
             self.navigationController?.dismiss(animated: true)
         }
-    }
-}
-
-extension GithubProfileViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        information.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = informationTableView.dequeueReusableCell(withIdentifier: CellType.information) as! ProfileInformationTableCell
-
-        let information = information[indexPath.row]
-
-        cell.bind(key: information.key, value: information.value)
-
-        return cell
     }
 }

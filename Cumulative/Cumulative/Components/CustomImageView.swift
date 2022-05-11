@@ -19,7 +19,6 @@ class CustomImageView: UIImageView {
     
     override init(image: UIImage?) {
         super.init(image: image)
-        
         tintColor = .primaryText
     }
 }

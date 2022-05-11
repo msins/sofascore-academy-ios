@@ -14,9 +14,11 @@
 		48B203AD51A4446F7733F464 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B20A1E648F659490E94F80 /* Publisher+Extension.swift */; };
 		48B203D5BEE04577C05C4962 /* GithubProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2018C80A6D6846C2DFA46 /* GithubProfileViewController.swift */; };
 		48B204C15108278F68E0F6A5 /* FollowerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B205BAC8A99B1780211CEA /* FollowerCollectionCell.swift */; };
+		48B206EA845E925CA36BCA76 /* ProfileDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B20666A81EB4D329452912 /* ProfileDetailsSection.swift */; };
 		48B20AB285F3203311927B58 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B20BE49C63B4F6A768BB23 /* JSONDecoder+Extension.swift */; };
 		48B20AFC5876C24896EF0444 /* GithubFollowerFetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B20B7938F995B957EE23D8 /* GithubFollowerFetchViewController.swift */; };
 		48B20C913365DD76DBD34C8D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B201E01CBED00A81E8C528 /* ApiError.swift */; };
+		48B20EA49AFC503D8F570CE2 /* ProfileFollowersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B209FBFF8E4C79657472E9 /* ProfileFollowersSection.swift */; };
 		48B20ED594CF04F5A44C0139 /* GithubFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2050AFE2E6C75AEA1D637 /* GithubFollowersViewController.swift */; };
 		48B20EFF2DC92BE8DA644643 /* CustomSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2047D8DF4634B6B911FE6 /* CustomSearch.swift */; };
 		580EFA6828022F210072F365 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 580EFA6728022F210072F365 /* SDWebImage */; };
@@ -45,7 +47,9 @@
 		48B2047D8DF4634B6B911FE6 /* CustomSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearch.swift; sourceTree = "<group>"; };
 		48B2050AFE2E6C75AEA1D637 /* GithubFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubFollowersViewController.swift; sourceTree = "<group>"; };
 		48B205BAC8A99B1780211CEA /* FollowerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerCollectionCell.swift; sourceTree = "<group>"; };
+		48B20666A81EB4D329452912 /* ProfileDetailsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailsSection.swift; sourceTree = "<group>"; };
 		48B209339BF6473D8D245562 /* ProfileInformationTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationTableCell.swift; sourceTree = "<group>"; };
+		48B209FBFF8E4C79657472E9 /* ProfileFollowersSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowersSection.swift; sourceTree = "<group>"; };
 		48B20A1E648F659490E94F80 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		48B20B7938F995B957EE23D8 /* GithubFollowerFetchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubFollowerFetchViewController.swift; sourceTree = "<group>"; };
 		48B20BE49C63B4F6A768BB23 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 			children = (
 				48B209339BF6473D8D245562 /* ProfileInformationTableCell.swift */,
 				48B205BAC8A99B1780211CEA /* FollowerCollectionCell.swift */,
+				48B209FBFF8E4C79657472E9 /* ProfileFollowersSection.swift */,
+				48B20666A81EB4D329452912 /* ProfileDetailsSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -105,10 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				48B20B7938F995B957EE23D8 /* GithubFollowerFetchViewController.swift */,
-				48B20C8369C53EFFEDAEFA7F /* Dto */,
 				48B2050AFE2E6C75AEA1D637 /* GithubFollowersViewController.swift */,
 				48B2018C80A6D6846C2DFA46 /* GithubProfileViewController.swift */,
 				48B20268559487066BDE5D12 /* Components */,
+				48B20C8369C53EFFEDAEFA7F /* Dto */,
 			);
 			path = Github;
 			sourceTree = "<group>";
@@ -144,17 +150,17 @@
 		586E9D0627FB883400C74A7C /* Cumulative */ = {
 			isa = PBXGroup;
 			children = (
-				583355CA2800C178007EB3A1 /* Network */,
-				586E9D2F27FBA1F800C74A7C /* Theme */,
-				586E9D2427FB9F4900C74A7C /* Components */,
-				586E9D0727FB883400C74A7C /* AppDelegate.swift */,
-				586E9D0927FB883400C74A7C /* SceneDelegate.swift */,
-				586E9D1027FB883700C74A7C /* Assets.xcassets */,
-				586E9D1227FB883700C74A7C /* LaunchScreen.storyboard */,
 				586E9D1527FB883700C74A7C /* Info.plist */,
+				586E9D0727FB883400C74A7C /* AppDelegate.swift */,
 				586E9D1B27FB949200C74A7C /* CheckmarksViewController.swift */,
 				586E9D3627FCD7EB00C74A7C /* MessagesViewController.swift */,
+				586E9D0927FB883400C74A7C /* SceneDelegate.swift */,
+				586E9D1027FB883700C74A7C /* Assets.xcassets */,
+				586E9D2427FB9F4900C74A7C /* Components */,
 				48B20D0B5A9033073247D7BD /* Github */,
+				586E9D1227FB883700C74A7C /* LaunchScreen.storyboard */,
+				583355CA2800C178007EB3A1 /* Network */,
+				586E9D2F27FBA1F800C74A7C /* Theme */,
 			);
 			path = Cumulative;
 			sourceTree = "<group>";
@@ -231,7 +237,7 @@
 			);
 			mainGroup = 586E9CFB27FB883400C74A7C;
 			packageReferences = (
-				586E9D2127FB9E2F00C74A7C /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				586E9D2127FB9E2F00C74A7C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				580EFA6628022F210072F365 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 586E9D0527FB883400C74A7C /* Products */;
@@ -285,6 +291,8 @@
 				48B203D5BEE04577C05C4962 /* GithubProfileViewController.swift in Sources */,
 				48B202C684E3506DDE1AE7BB /* ProfileInformationTableCell.swift in Sources */,
 				48B204C15108278F68E0F6A5 /* FollowerCollectionCell.swift in Sources */,
+				48B20EA49AFC503D8F570CE2 /* ProfileFollowersSection.swift in Sources */,
+				48B206EA845E925CA36BCA76 /* ProfileDetailsSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,7 +516,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		586E9D2127FB9E2F00C74A7C /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		586E9D2127FB9E2F00C74A7C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -526,7 +534,7 @@
 		};
 		586E9D2227FB9E2F00C74A7C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 586E9D2127FB9E2F00C74A7C /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = 586E9D2127FB9E2F00C74A7C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
