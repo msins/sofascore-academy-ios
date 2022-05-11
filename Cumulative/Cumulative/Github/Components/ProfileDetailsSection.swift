@@ -9,10 +9,10 @@ class ProfileDetailsSection: UIView {
     private let profileButton = CustomButton(title: "Github profile", color: .githubProfileButton)
     
     private let reposLabel = CustomLabel(text: "Public repos")
-    private let reposCount = CustomLabel()
+    private let reposCountLabel = CustomLabel()
     
     private let gistsLabel = CustomLabel(text: "Public gists")
-    private let gistsCount = CustomLabel()
+    private let gistsCountLabel = CustomLabel()
     
     private let repos: Int
     private let gists: Int
@@ -45,16 +45,16 @@ class ProfileDetailsSection: UIView {
     
     private func configureReposInformation() {
         addSubview(reposLabel)
-        addSubview(reposCount)
+        addSubview(reposCountLabel)
         
-        reposCount.text = String(repos)
+        reposCountLabel.text = String(repos)
         
         reposLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top).offset(Constraints.padding)
             $0.leading.equalTo(self.snp.leading).offset(Constraints.padding)
         }
         
-        reposCount.snp.makeConstraints {
+        reposCountLabel.snp.makeConstraints {
             $0.centerX.equalTo(reposLabel)
             $0.top.equalTo(reposLabel.snp.bottom).offset(5)
         }
@@ -62,16 +62,16 @@ class ProfileDetailsSection: UIView {
     
     private func configureGistsInformation() {
         addSubview(gistsLabel)
-        addSubview(gistsCount)
+        addSubview(gistsCountLabel)
         
-        gistsCount.text = String(gists)
+        gistsCountLabel.text = String(gists)
         
         gistsLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top).offset(Constraints.padding)
             $0.trailing.equalTo(self.snp.trailing).inset(Constraints.padding)
         }
         
-        gistsCount.snp.makeConstraints {
+        gistsCountLabel.snp.makeConstraints {
             $0.centerX.equalTo(gistsLabel)
             $0.top.equalTo(gistsLabel.snp.bottom).offset(5)
         }

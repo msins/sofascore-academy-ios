@@ -10,10 +10,10 @@ class ProfileFollowersSection: UIView {
     private let followersLoadingIndicator = UIActivityIndicatorView()
     
     private let followersLabel = CustomLabel(text: "Followers")
-    private let followersCount = CustomLabel()
+    private let followersCountLabel = CustomLabel()
     
     private let followingLabel = CustomLabel(text: "Following")
-    private let followingCount = CustomLabel()
+    private let followingCountLabel = CustomLabel()
     
     private var followers: Int
     private var following: Int
@@ -46,16 +46,16 @@ class ProfileFollowersSection: UIView {
 
     private func configureFollowersInformation() {
         addSubview(followersLabel)
-        addSubview(followersCount)
+        addSubview(followersCountLabel)
         
-        followersCount.text = String(followers)
+        followersCountLabel.text = String(followers)
         
         followersLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top).offset(Constraints.padding)
             $0.leading.equalTo(self.snp.leading).offset(Constraints.padding)
         }
         
-        followersCount.snp.makeConstraints {
+        followersCountLabel.snp.makeConstraints {
             $0.centerX.equalTo(followersLabel)
             $0.top.equalTo(followersLabel.snp.bottom).offset(5)
         }
@@ -63,16 +63,16 @@ class ProfileFollowersSection: UIView {
     
     private func configureFollowingInformation() {
         addSubview(followingLabel)
-        addSubview(followingCount)
+        addSubview(followingCountLabel)
         
-        followingCount.text = String(following)
+        followingCountLabel.text = String(following)
         
         followingLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top).offset(Constraints.padding)
             $0.trailing.equalTo(self.snp.trailing).inset(Constraints.padding)
         }
         
-        followingCount.snp.makeConstraints {
+        followingCountLabel.snp.makeConstraints {
             $0.centerX.equalTo(followingLabel)
             $0.top.equalTo(followingLabel.snp.bottom).offset(5)
         }

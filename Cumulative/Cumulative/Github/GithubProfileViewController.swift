@@ -123,7 +123,7 @@ class GithubProfileViewController: UIViewController {
     private func configureName() {
         view.addSubview(fullnameLabel)
         
-        fullnameLabel.text = profile!.name
+        fullnameLabel.text = profile?.name
         fullnameLabel.font = .systemFont(ofSize: 16)
         
         fullnameLabel.snp.makeConstraints {
@@ -135,7 +135,7 @@ class GithubProfileViewController: UIViewController {
     private func configureBio() {
         view.addSubview(bio)
         
-        bio.text = profile!.bio
+        bio.text = profile?.bio
         bio.numberOfLines = 0
         bio.font = .systemFont(ofSize: 14)
         
@@ -155,7 +155,7 @@ class GithubProfileViewController: UIViewController {
             $0.bottom.equalTo(avatar.snp.bottom)
         }
         
-        locationLabel.text = profile!.location
+        locationLabel.text = profile?.location
         
         locationLabel.snp.makeConstraints {
             $0.leading.equalTo(locationIcon.snp.trailing)
@@ -175,7 +175,7 @@ class GithubProfileViewController: UIViewController {
         }
         
         detailsSection.snp.makeConstraints {
-            if profile!.bio != nil {
+            if profile?.bio != nil {
                 $0.top.equalTo(bio.snp.bottom).offset(15)
             } else {
                 $0.top.equalTo(avatar.snp.bottom).offset(15)
@@ -236,9 +236,13 @@ class GithubProfileViewController: UIViewController {
     }
     
     private func configureUserSince() {
+        guard let profile = profile else {
+            return
+        }
+
         view.addSubview(userSinceLabel)
         
-        userSinceLabel.text = "User since \(userSinceDateFormatter.string(from: profile!.createdAt))"
+        userSinceLabel.text = "User since \(userSinceDateFormatter.string(from: profile.createdAt))"
         
         userSinceLabel.snp.makeConstraints {
             $0.top.equalTo(followersSection.snp.bottom).offset(10)
